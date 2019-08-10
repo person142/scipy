@@ -112,6 +112,7 @@ Thumbs.db
 #################################
 doc/frontpage/build
 doc/source/generated
+doc/special-source
 
 # Things specific to this project #
 ###################################

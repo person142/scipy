@@ -168,3 +168,15 @@ linkcheck:
 show:
 	@python -c "import webbrowser; webbrowser.open_new_tab('file://$(PWD)/build/html-scipyorg/index.html')"
 
+special:
+	mkdir -p build/html build/special build/doctrees special-source
+	cp -r source/_static special-source/_static
+	cp source/conf.py special-source/conf.py
+	cp source/scipyoptdoc.py special-source/scipyoptdoc.py
+	cp source/doi_role.py special-source/doi_role.py
+	cp source/special.rst special-source/index.rst
+	$(SPHINXBUILD) -j 4 -T -t scipyorg -b html \
+	               -d build/doctrees $(SPHINXOPTS) -Ea \
+	               special-source build/special
+	@echo
+	@echo "Build finished. The HTML pages are in build/special."
